@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry My Love | Romantic Apology</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f9d5e5 0%, #ffafbd 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #5a3d5c;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(219, 112, 147, 0.3);
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        header {
+            background: linear-gradient(90deg, #e84393, #fd79a8);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .heart-decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: floatHearts 15s infinite linear;
+            opacity: 0;
+        }
+        
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        .apology-section {
+            background: rgba(255, 245, 250, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(232, 67, 147, 0.1);
+            border: 1px solid rgba(232, 67, 147, 0.2);
+        }
+        
+        h2 {
+            color: #e84393;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #5a3d5c;
+            font-size: 1.1rem;
+        }
+        
+        .love-items {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .love-items li {
+            padding: 15px;
+            margin-bottom: 12px;
+            background-color: white;
+            border-radius: 15px;
+            border-left: 5px solid #fd79a8;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(253, 121, 168, 0.1);
+        }
+        
+        .love-items li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(253, 121, 168, 0.2);
+        }
+        
+        .love-items i {
+            color: #e84393;
+            font-size: 1.5rem;
+        }
+        
+        .interactive-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .love-letter {
+            background: linear-gradient(135deg, #ffd6e7, #ffafcc);
+            color: #5a3d5c;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(253, 121, 168, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-letter:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .love-letter h2, .love-letter p, .love-letter textarea {
+            position: relative;
+            z-index: 1;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #ffafcc;
+            background-color: rgba(255, 255, 255, 0.8);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #5a3d5c;
+            resize: none;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #e84393;
+            box-shadow: 0 0 0 3px rgba(232, 67, 147, 0.2);
+        }
+        
+        button {
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .send-btn {
+            background: linear-gradient(90deg, #e84393, #fd79a8);
+            color: white;
+            width: 100%;
+        }
+        
+        .send-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(232, 67, 147, 0.4);
+            background: linear-gradient(90deg, #fd79a8, #e84393);
+        }
+        
+        .love-meter-section {
+            background: rgba(255, 245, 250, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(232, 67, 147, 0.1);
+            border: 1px solid rgba(232, 67, 147, 0.2);
+        }
+        
+        .meter-container {
+            height: 40px;
+            background-color: #ffe4ec;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffafcc, #e84393);
+            width: 65%;
+            border-radius: 20px;
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 20px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #e84393;
+            margin-bottom: 10px;
+        }
+        
+        .slider-container {
+            margin-top: 25px;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 15px;
+            -webkit-appearance: none;
+            background: #ffe4ec;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #e84393;
+            cursor: pointer;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(232, 67, 147, 0.4);
+        }
+        
+        .heart-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .beating-heart {
+            font-size: 8rem;
+            color: #e84393;
+            animation: heartbeat 1.2s infinite;
+            text-shadow: 0 5px 20px rgba(232, 67, 147, 0.4);
+        }
+        
+        .kiss-button {
+            background: linear-gradient(90deg, #ffafcc, #e84393);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .kiss-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(232, 67, 147, 0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #e84393;
+            border-top: 1px solid rgba(232, 67, 147, 0.2);
+            background-color: rgba(255, 245, 250, 0.9);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: #e84393;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(232, 67, 147, 0.2);
+        }
+        
+        .social-icons a:hover {
+            color: white;
+            background: #e84393;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(232, 67, 147, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+            25% { transform: translate(15px, -15px) rotate(5deg); }
+            50% { transform: translate(-10px, 10px) rotate(-5deg); }
+            75% { transform: translate(5px, -5px) rotate(3deg); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(232, 67, 147, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(232, 67, 147, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(232, 67, 147, 0); }
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(232, 67, 147, 0.7);
+            animation: float 8s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .demo-info {
+            background: linear-gradient(90deg, #e84393, #fd79a8);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(232, 67, 147, 0.3);
+        }
+        
+        .demo-info a {
+            color: #ffebf3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .demo-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .kiss-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 182, 193, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+        
+        .kiss-animation.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .kiss-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #e84393;
+            text-align: center;
+            animation: heartbeat 1s infinite;
+        }
+        
+        .close-kiss {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: #e84393;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .love-promise {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(232, 67, 147, 0.1);
+            border: 2px dashed #ffafcc;
+        }
+        
+        .promise-title {
+            color: #e84393;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-info">
+        <p>💖 A Romantic "Sorry" Page with Hearts & Love Animations 💖</p>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>I'm So Sorry, My Love</h1>
+            <p class="subtitle">Please forgive me and let me make it up to you</p>
+            <div class="heart-decoration">❤️</div>
+        </header>
+        
+        <div class="heart-animation">
+            <div class="beating-heart">❤️</div>
+        </div>
+        
+        <div class="content">
+            <div class="apology-section">
+                <h2><i class="fas fa-heart"></i> My Heartfelt Apology</h2>
+                <p>My dearest, I am truly sorry for hurting you. You mean everything to me, and seeing you upset breaks my heart. I promise to do better and cherish you always.</p>
+                
+                <ul class="love-items">
+                    <li><i class="fas fa-heart"></i> I'm sorry for not listening better</li>
+                    <li><i class="fas fa-star"></i> I'm sorry for being thoughtless</li>
+                    <li><i class="fas fa-kiss-wink-heart"></i> I'm sorry for making you sad</li>
+                    <li><i class="fas fa-hand-holding-heart"></i> I promise to be more attentive</li>
+                    <li><i class="fas fa-heartbeat"></i> I'll love you more every day</li>
+                </ul>
+                
+                <div class="love-promise">
+                    <div class="promise-title"><i class="fas fa-gift"></i> My Promise To You</div>
+                    <p>I promise to be more understanding, to listen with my whole heart, and to always put your happiness first. You are my everything.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <div class="love-letter">
+                    <h2><i class="fas fa-envelope"></i> Write Your Love Letter</h2>
+                    <p>Pour your heart out with a personalized love letter:</p>
+                    <textarea id="loveLetter" placeholder="My dearest, I want to start by saying how deeply sorry I am...">My dearest, I want to start by saying how deeply sorry I am. You light up my world, and I hate that I dimmed your smile even for a moment. Please forgive me.</textarea>
+                    <button class="send-btn" id="sendLoveLetter">
+                        <i class="fas fa-paper-plane"></i> Send Love Letter
+                    </button>
+                </div>
+                
+                <div class="love-meter-section">
+                    <h2><i class="fas fa-heart"></i> Love & Forgiveness Meter</h2>
+                    <p>How much do you forgive me? Slide to show your heart's feeling:</p>
+                    
+                    <div class="meter-labels">
+                        <span><i class="fas fa-frown"></i> Still Hurt</span>
+                        <span><i class="fas fa-grin-hearts"></i> All Forgiven!</span>
+                    </div>
+                    
+                    <div class="meter-container">
+                        <div class="meter-fill" id="meter-fill">65% Love</div>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="65" class="slider" id="love-slider">
+                    </div>
+                    
+                    <button class="kiss-button" id="kissButton">
+                        <i class="fas fa-kiss-wink-heart"></i> Send a Virtual Kiss
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>With all my love and a promise to do better...</p>
+            <p>Forever yours 💕</p>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 1rem;">Made with <i class="fas fa-heart" style="color: #e84393;"></i> for the one I love</p>
+        </footer>
+    </div>
+    
+    <div class="kiss-animation" id="kissAnimation">
+        <button class="close-kiss" id="closeKiss">×</button>
+        <div class="kiss-text">
+            Mwah! 💋<br>
+            I Love You!
+        </div>
+    </div>
+    
+    <script>
+        // Create floating hearts in background
+        function createFloatingHearts() {
+            const container = document.querySelector('.container');
+            const heartIcons = ['❤️', '💖', '💕', '💗', '💓', '💞', '💘', '💝'];
+            
+            for (let i = 0; i < 25; i++) {
+                const heartEl = document.createElement('div');
+                heartEl.className = 'floating-hearts';
+                heartEl.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                heartEl.style.left = `${Math.random() * 100}%`;
+                heartEl.style.top = `${Math.random() * 100}%`;
+                heartEl.style.fontSize = `${1 + Math.random() * 2.5}rem`;
+                heartEl.style.animationDuration = `${8 + Math.random() * 12}s`;
+                heartEl.style.animationDelay = `${Math.random() * 5}s`;
+                heartEl.style.opacity = `${0.3 + Math.random() * 0.7}`;
+                container.appendChild(heartEl);
+            }
+        }
+        
+        // Create heart decorations in header
+        function createHeaderHearts() {
+            const header = document.querySelector('header');
+            const heartIcons = ['❤️', '💖', '💕', '💗'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heartEl = document.createElement('div');
+                heartEl.className = 'heart-decoration';
+                heartEl.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                heartEl.style.left = `${Math.random() * 100}%`;
+                heartEl.style.fontSize = `${1.5 + Math.random() * 2}rem`;
+                heartEl.style.animationDuration = `${10 + Math.random() * 20}s`;
+                heartEl.style.animationDelay = `${Math.random() * 3}s`;
+                header.appendChild(heartEl);
+            }
+        }
+        
+        // Love meter functionality
+        const slider = document.getElementById('love-slider');
+        const meterFill = document.getElementById('meter-fill');
+        
+        slider.addEventListener('input', function() {
+            const value = this.value;
+            meterFill.style.width = `${value}%`;
+            
+            // Change text based on value
+            if (value < 30) {
+                meterFill.textContent = `${value}% Need More Love`;
+                meterFill.style.background = 'linear-gradient(90deg, #ffafcc, #e84393)';
+            } else if (value < 70) {
+                meterFill.textContent = `${value}% Getting There`;
+                meterFill.style.background = 'linear-gradient(90deg, #ffafcc, #e84393)';
+            } else {
+                meterFill.textContent = `${value}% I Love You!`;
+                meterFill.style.background = 'linear-gradient(90deg, #ffafcc, #e84393)';
+            }
+            
+            // Animate the heart based on value
+            const heart = document.querySelector('.beating-heart');
+            if (value < 30) {
+                heart.style.animationDuration = '2s';
+                heart.style.color = '#ffafcc';
+            } else if (value < 70) {
+                heart.style.animationDuration = '1.2s';
+                heart.style.color = '#e84393';
+            } else {
+                heart.style.animationDuration = '0.8s';
+                heart.style.color = '#d63031';
+            }
+        });
+        
+        // Kiss button animation
+        const kissButton = document.getElementById('kissButton');
+        const kissAnimation = document.getElementById('kissAnimation');
+        const closeKiss = document.getElementById('closeKiss');
+        
+        kissButton.addEventListener('click', function() {
+            kissAnimation.classList.add('show');
+            
+            // Create floating kisses
+            for (let i = 0; i < 20; i++) {
+                const kiss = document.createElement('div');
+                kiss.innerHTML = '💋';
+                kiss.style.position = 'fixed';
+                kiss.style.fontSize = `${1 + Math.random() * 2}rem`;
+                kiss.style.left = `${Math.random() * 100}%`;
+                kiss.style.top = `${Math.random() * 100}%`;
+                kiss.style.zIndex = '1001';
+                kiss.style.animation = `float ${3 + Math.random() * 4}s ease-in forwards`;
+                kiss.style.opacity = '0.8';
+                document.body.appendChild(kiss);
+                
+                // Remove kiss after animation
+                setTimeout(() => {
+                    kiss.remove();
+                }, 7000);
+            }
+            
+            // Update love meter to maximum
+            slider.value = 100;
+            slider.dispatchEvent(new Event('input'));
+        });
+        
+        closeKiss.addEventListener('click', function() {
+            kissAnimation.classList.remove('show');
+        });
+        
+        // Love letter functionality
+        const sendLoveLetter = document.getElementById('sendLoveLetter');
+        const loveLetter = document.getElementById('loveLetter');
+        
+        sendLoveLetter.addEventListener('click', function() {
+            if (loveLetter.value.trim() === '') {
+                alert('Please write a love letter before sending!');
+                return;
+            }
+            
+            // Animate the button
+            sendLoveLetter.innerHTML = '<i class="fas fa-check"></i> Love Letter Sent!';
+            sendLoveLetter.style.background = 'linear-gradient(90deg, #00b894, #55efc4)';
+            
+            // Create floating hearts
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.bottom = '0';
+                heart.style.zIndex = '1001';
+                heart.style.animation = `floatHearts ${5 + Math.random() * 5}s ease-in forwards`;
+                document.body.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                sendLoveLetter.innerHTML = '<i class="fas fa-paper-plane"></i> Send Love Letter';
+                sendLoveLetter.style.background = 'linear-gradient(90deg, #e84393, #fd79a8)';
+            }, 3000);
+            
+            // Increase love meter
+            const currentValue = parseInt(slider.value);
+            const newValue = Math.min(100, currentValue + 15);
+            slider.value = newValue;
+            slider.dispatchEvent(new Event('input'));
+        });
+        
+        // Initialize the page
+        window.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            createHeaderHearts();
+            
+            // Trigger the slider event to set initial state
+            slider.dispatchEvent(new Event('input'));
+            
+            // Add pulse animation to love letter section
+            const loveLetterSection = document.querySelector('.love-letter');
+            setInterval(() => {
+                loveLetterSection.style.animation = 'pulse 2s';
+                setTimeout(() => {
+                    loveLetterSection.style.animation = '';
+                }, 2000);
+            }, 8000);
+        });
+    </script>
+</body>
+</html>
